@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+def propertiesFile = rootProject.file("local.properties")
+def propertiesObject = new Properties()
+propertiesObject.load(new FileInputStream(propertiesFile))
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -14,6 +18,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //define maps API key as res value
+        resValue("string", "google_maps_key", "${propertiesObject["GOOGLE_MAPS_API_KEY"]}")
     }
     buildTypes {
         release {
