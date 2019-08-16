@@ -1,4 +1,4 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="map_circle_image_view_size">64dp</dimen>
+    <dimen name="map_circle_image_view_size">46dp</dimen>
 </resources>
