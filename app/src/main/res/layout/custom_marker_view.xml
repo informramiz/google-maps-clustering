@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<github.informramiz.mapclusteringapplication.customviews.CircleImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/marker_image_view"
     android:layout_width="@dimen/map_circle_image_view_size"
-    android:layout_height="@dimen/map_circle_image_view_size">
-    <github.informramiz.mapclusteringapplication.customviews.CircleImageView
-        android:id="@+id/marker_image_view"
-        android:layout_width="@dimen/map_circle_image_view_size"
-        android:layout_height="@dimen/map_circle_image_view_size"/>
-</FrameLayout>
+    android:layout_height="@dimen/map_circle_image_view_size"/>
