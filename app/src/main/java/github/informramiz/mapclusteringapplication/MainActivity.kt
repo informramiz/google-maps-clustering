@@ -10,6 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterManager
+import github.informramiz.mapclusteringapplication.clusterrenderer.PersonClusterRenderer
 import github.informramiz.mapclusteringapplication.models.Person
 import kotlin.random.Random
 

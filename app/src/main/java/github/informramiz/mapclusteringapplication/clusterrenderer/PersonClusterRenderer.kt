@@ -1,4 +1,4 @@
-package github.informramiz.mapclusteringapplication
+package github.informramiz.mapclusteringapplication.clusterrenderer
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import com.google.maps.android.clustering.Cluster
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
 import com.google.maps.android.ui.IconGenerator
+import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.customviews.CircleImageView
 import github.informramiz.mapclusteringapplication.models.Person
 
