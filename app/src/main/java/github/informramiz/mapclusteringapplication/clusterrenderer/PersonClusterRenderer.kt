@@ -47,7 +47,7 @@ class PersonClusterRenderer(
 
     override fun onClusterItemRendered(clusterItem: Person, marker: Marker) {
         val picassoMarker = PicassoMarker(marker, markerImageView, markerIconGenerator)
-        picassoMarker.load("https://cdn.pixabay.com/photo/2014/11/13/06/12/boy-529067_1280.jpg")
+        picassoMarker.load(clusterItem.imageUrl)
         picassoMarkers.add(picassoMarker)
     }
 
