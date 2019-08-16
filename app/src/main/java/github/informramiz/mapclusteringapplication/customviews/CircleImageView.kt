@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewOutlineProvider
 import androidx.appcompat.widget.AppCompatImageView
+import github.informramiz.mapclusteringapplication.R
 
 
 /**
@@ -15,5 +16,6 @@ class CircleImageView @JvmOverloads constructor(
     init {
         outlineProvider = ViewOutlineProvider.BACKGROUND
         clipToOutline = true
+        setBackgroundResource(R.drawable.circle_background)
     }
 }
