@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    
+    <github.informramiz.mapclusteringapplication.customviews.CircleImageView
+        android:id="@+id/circle_image_view"
+        android:layout_width="@dimen/map_info_window_circle_image_view_size"
+        android:layout_height="@dimen/map_info_window_circle_image_view_size"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"
+        android:src="@drawable/placeholder_image"
+        android:layout_gravity="start|center_vertical"/>
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="12dp"
+        tools:text="Ramiz Raja"
+        android:text="Ramiz Raja Raja"
+        android:layout_marginEnd="18dp"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+</merge>
