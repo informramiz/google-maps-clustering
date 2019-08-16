@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             map = it
             map.uiSettings.setAllGesturesEnabled(true)
             map.uiSettings.isMapToolbarEnabled = true
+            map.uiSettings.isZoomControlsEnabled = true
             startDemo()
         }
     }
