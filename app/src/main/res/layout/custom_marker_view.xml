@@ -3,6 +3,7 @@
     android:layout_width="@dimen/map_circle_image_view_size"
     android:layout_height="@dimen/map_circle_image_view_size">
     <github.informramiz.mapclusteringapplication.customviews.CircleImageView
+        android:id="@+id/marker_image_view"
         android:layout_width="@dimen/map_circle_image_view_size"
         android:layout_height="@dimen/map_circle_image_view_size"/>
 </FrameLayout>

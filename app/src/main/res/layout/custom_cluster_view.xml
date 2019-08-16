@@ -6,7 +6,7 @@
     android:layout_height="@dimen/map_circle_image_view_size">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/cluster_image_view"
         android:layout_width="@dimen/map_circle_image_view_size"
         android:layout_height="@dimen/map_circle_image_view_size"/>
 
