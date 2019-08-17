@@ -1,9 +1,7 @@
 package github.informramiz.mapclusteringapplication.models
 
-import androidx.annotation.DrawableRes
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem
-import github.informramiz.mapclusteringapplication.R
 
 
 /**
