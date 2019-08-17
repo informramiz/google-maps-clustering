@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         map_cards_view_pager2.apply {
             adapter = mapCardsAdapter
-            orientation = ViewPager2.ORIENTATION_HORIZONTAL
             val margin = getDimension(R.dimen.map_cards_view_pager_margin)
             val offset = getDimension(R.dimen.map_cards_view_pager_page_offset)
             setPageTransformer(PageOffsetAndMarginTransformer(offset, margin))
