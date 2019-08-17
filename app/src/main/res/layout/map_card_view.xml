@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    app:cardCornerRadius="4dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="18dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="18dp"/>
+
+        <github.informramiz.mapclusteringapplication.customviews.CircleImageView
+            android:id="@+id/circle_image_view"
+            android:layout_width="@dimen/map_card_circle_image_view_size"
+            android:layout_height="@dimen/map_card_circle_image_view_size"
+            android:src="@drawable/placeholder_image"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"/>
+
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#29295d"
+            tools:text="Ramiz Raja"
+            app:layout_constraintTop_toTopOf="@id/circle_image_view"
+            app:layout_constraintStart_toEndOf="@id/circle_image_view"
+            android:layout_marginStart="12dp"/>
+
+        <TextView
+            android:id="@+id/text_view_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#b2b2ce"
+            tools:text="It is 3 km away"
+            app:layout_constraintTop_toBottomOf="@id/text_view_name"
+            app:layout_constraintStart_toStartOf="@id/text_view_name" />
+
+        <TextView
+            android:id="@+id/text_view_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#6f00b0"
+            android:textStyle="bold"
+            tools:text="15 SAR"
+            app:layout_constraintTop_toTopOf="@id/circle_image_view"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end" />
+
+        <TextView
+            android:id="@+id/text_view_per_hour_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#b2b2ce"
+            android:textStyle="bold"
+            tools:text="Per hour"
+            app:layout_constraintTop_toBottomOf="@id/text_view_price"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="3.5"
+            style="?android:attr/ratingBarStyleSmall"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
