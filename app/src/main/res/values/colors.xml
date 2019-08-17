@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="circle_image_view_border_color">#dedff2</color>
+    <color name="textColorPrimary">#29295d</color>
+    <color name="textColorTertiary">#b2b2ce</color>
+    <color name="textColorSecondary">#6f00b0</color>
 </resources>
