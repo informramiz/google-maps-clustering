@@ -4,4 +4,6 @@
     <dimen name="map_info_window_circle_image_view_size">48dp</dimen>
     <dimen name="map_card_circle_image_view_size">48dp</dimen>
     <dimen name="map_cards_view_pager_margin">8dp</dimen>
+    <dimen name="map_cards_view_pager_page_offset">22dp</dimen>
+    <dimen name="map_cards_view_pager_page_offset_and_margin">30dp</dimen>
 </resources>

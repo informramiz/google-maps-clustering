@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterManager
 import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.clusterrenderer.PersonClusterRenderer
+import github.informramiz.mapclusteringapplication.common.getDimension
 import github.informramiz.mapclusteringapplication.main.adapter.MapCardsAdapter
+import github.informramiz.mapclusteringapplication.main.adapter.PageOffsetAndMarginTransformer
 import github.informramiz.mapclusteringapplication.models.Person
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlin.random.Random
 
@@ -48,7 +49,10 @@ class MainActivity : AppCompatActivity() {
         map_cards_view_pager2.apply {
             adapter = mapCardsAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            setPageTransformer(MarginPageTransformer(resources.getDimensionPixelSize(R.dimen.map_cards_view_pager_margin)))
+            val margin = getDimension(R.dimen.map_cards_view_pager_margin)
+            val offset = getDimension(R.dimen.map_cards_view_pager_page_offset)
+            setPageTransformer(PageOffsetAndMarginTransformer(offset, margin))
+            offscreenPageLimit = 3
         }
     }
 
