@@ -1,13 +1,12 @@
-package github.informramiz.mapclusteringapplication.models
+package github.informramiz.mapclusteringapplication
 
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import com.squareup.picasso.Picasso
-import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.customviews.WindowInfoView
+import github.informramiz.mapclusteringapplication.models.Person
 
 
 /**
