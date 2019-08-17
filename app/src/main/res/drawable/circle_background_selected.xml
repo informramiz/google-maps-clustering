@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <size android:height="@dimen/map_circle_image_view_size" android:width="@dimen/map_circle_image_view_size" />
+    <stroke android:width="2dp" android:color="@color/textColorSecondary"/>
+    <padding
+        android:bottom="@dimen/map_marker_circle_border"
+        android:left="@dimen/map_marker_circle_border"
+        android:right="@dimen/map_marker_circle_border"
+        android:top="@dimen/map_marker_circle_border"
+        android:start="@dimen/map_marker_circle_border"
+        android:end="@dimen/map_marker_circle_border"/>
+</shape>

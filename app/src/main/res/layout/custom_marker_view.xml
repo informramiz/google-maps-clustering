@@ -2,7 +2,7 @@
 <github.informramiz.mapclusteringapplication.customviews.CircleImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/marker_image_view"
-    android:background="@drawable/circle_background"
+    android:background="@drawable/circle_background_selector"
     android:outlineProvider="background"
     android:src="@drawable/placeholder_image"
     android:scaleType="centerCrop"

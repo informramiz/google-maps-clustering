@@ -16,6 +16,8 @@ class CircleImageView @JvmOverloads constructor(
     init {
         outlineProvider = ViewOutlineProvider.BACKGROUND
         clipToOutline = true
-        setBackgroundResource(R.drawable.circle_background)
+        if (background == null) {
+            setBackgroundResource(R.drawable.circle_background_unselected)
+        }
     }
 }

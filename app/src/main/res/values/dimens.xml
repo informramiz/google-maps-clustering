@@ -6,4 +6,5 @@
     <dimen name="map_cards_view_pager_margin">8dp</dimen>
     <dimen name="map_cards_view_pager_page_offset">22dp</dimen>
     <dimen name="map_cards_view_pager_page_offset_and_margin">30dp</dimen>
+    <dimen name="map_marker_circle_border">2dp</dimen>
 </resources>
