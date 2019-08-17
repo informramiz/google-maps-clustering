@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         map_cards_view_pager2.apply {
             adapter = mapCardsAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            setPageTransformer(MarginPageTransformer(resources.getDimensionPixelSize(R.dimen.map_cards_view_pager_margin)))
         }
     }
 
