@@ -2,13 +2,14 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="match_parent"
     app:cardCornerRadius="4dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="@android:color/white"
+        android:layout_height="110dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top"
@@ -66,6 +67,7 @@
             android:textSize="14sp"
             android:textColor="#b2b2ce"
             tools:text="It is 3 km away"
+            android:text="It is 3 km away"
             app:layout_constraintTop_toBottomOf="@id/text_view_name"
             app:layout_constraintStart_toStartOf="@id/text_view_name" />
 
@@ -77,6 +79,7 @@
             android:textColor="#6f00b0"
             android:textStyle="bold"
             tools:text="15 SAR"
+            android:text="15 SAR"
             app:layout_constraintTop_toTopOf="@id/circle_image_view"
             app:layout_constraintEnd_toEndOf="@id/guideline_end" />
 
@@ -88,6 +91,7 @@
             android:textColor="#b2b2ce"
             android:textStyle="bold"
             tools:text="Per hour"
+            android:text="Per hour"
             app:layout_constraintTop_toBottomOf="@id/text_view_price"
             app:layout_constraintEnd_toEndOf="@id/guideline_end" />
 

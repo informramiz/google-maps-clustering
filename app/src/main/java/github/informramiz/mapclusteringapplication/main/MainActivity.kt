@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -12,7 +13,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterManager
 import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.clusterrenderer.PersonClusterRenderer
+import github.informramiz.mapclusteringapplication.main.adapter.MapCardsAdapter
 import github.informramiz.mapclusteringapplication.models.Person
+import kotlinx.android.synthetic.main.content_main.*
 import kotlin.random.Random
 
 
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
     private val persons = mutableListOf<Person>()
+    private val mapCardsAdapter = MapCardsAdapter(persons)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,11 @@ class MainActivity : AppCompatActivity() {
             map.uiSettings.isMapToolbarEnabled = true
             map.uiSettings.isZoomControlsEnabled = true
             startDemo()
+        }
+
+        map_cards_view_pager2.apply {
+            adapter = mapCardsAdapter
+            orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
     }
 
@@ -60,6 +69,7 @@ class MainActivity : AppCompatActivity() {
     private fun startDemo() {
         clusterManager.renderer = PersonClusterRenderer(this, map, clusterManager)
         initItems()
+        mapCardsAdapter.notifyDataSetChanged()
         clusterManager.addItems(persons)
         clusterManager.cluster()
 
