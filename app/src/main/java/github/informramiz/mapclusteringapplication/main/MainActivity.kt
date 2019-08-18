@@ -24,9 +24,14 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
     private lateinit var map: GoogleMap
     private val random = Random(1984)
+
     private val clusterManager by lazy {
         ClusterManager<Person>(this, map)
     }
+    private val clusterRenderer by lazy {
+        PersonClusterRenderer(this, map, clusterManager)
+    }
+
     private val mapFragment by lazy {
         supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
@@ -57,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         map.uiSettings.setAllGesturesEnabled(true)
         map.uiSettings.isMapToolbarEnabled = true
         map.uiSettings.isZoomControlsEnabled = true
+        clusterManager.renderer = clusterRenderer
+        map.setOnMarkerClickListener { marker ->
+            clusterRenderer.setMarkerSelected(marker, true)
+            false
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -76,13 +86,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startDemo() {
-        clusterManager.renderer = PersonClusterRenderer(this, map, clusterManager)
         initItems()
-        mapCardsAdapter.notifyDataSetChanged()
         clusterManager.addItems(persons)
         clusterManager.cluster()
-
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(persons[0].location, 8f))
+        mapCardsAdapter.notifyDataSetChanged()
     }
 
     private fun initItems() {

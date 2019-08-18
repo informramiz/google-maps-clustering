@@ -61,14 +61,12 @@ class PersonClusterRenderer(
     }
 
     fun setMarkerSelected(marker: Marker, isSelected: Boolean) {
-        val markerItem = getClusterItem(marker)
-        val picassoMarker = findPicassoMarker(marker)
-        picassoMarker ?: return
-        picassoMarker.imageView.isSelected = isSelected
-        picassoMarker.load(markerItem.imageUrl)
+        unselectedAllMarkers()
+        setMarkerSelection(marker, isSelected)
     }
 
-    fun setItemSelected(item: Person, isSelected: Boolean) {
+    fun setMarkerSelected(item: Person, isSelected: Boolean) {
+        unselectedAllMarkers()
         val marker = getMarker(item)
         marker ?: return
         setMarkerSelected(marker, isSelected)
@@ -76,5 +74,17 @@ class PersonClusterRenderer(
 
     private fun findPicassoMarker(marker: Marker): PicassoMarker? {
         return picassoMarkers.firstOrNull { it.marker == marker }
+    }
+
+    private fun unselectedAllMarkers() {
+        picassoMarkers.forEach { setMarkerSelection(it.marker, false) }
+    }
+
+    private fun setMarkerSelection(marker: Marker, isSelected: Boolean) {
+        val markerItem = getClusterItem(marker)
+        val picassoMarker = findPicassoMarker(marker)
+        picassoMarker ?: return
+        picassoMarker.imageView.isSelected = isSelected
+        picassoMarker.load(markerItem.imageUrl)
     }
 }
