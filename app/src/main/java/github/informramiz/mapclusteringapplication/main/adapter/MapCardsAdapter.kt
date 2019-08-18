@@ -18,4 +18,13 @@ class MapCardsAdapter():
     override fun onBindViewHolder(holder: MapCardViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    fun getItemPosition(item: Person): Int? {
+        for (i in 0 until itemCount) {
+            if (getItem(i) == item) {
+                return i
+            }
+        }
+        return null
+    }
 }

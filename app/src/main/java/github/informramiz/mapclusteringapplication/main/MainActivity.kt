@@ -9,6 +9,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.maps.android.clustering.ClusterManager
 import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.clusterrenderer.PersonClusterRenderer
@@ -64,9 +65,17 @@ class MainActivity : AppCompatActivity() {
         map.uiSettings.isZoomControlsEnabled = true
         clusterManager.renderer = clusterRenderer
         map.setOnMarkerClickListener { marker ->
-            clusterRenderer.setMarkerSelected(marker, true)
+            onMarkerClicked(marker)
             false
         }
+    }
+
+    private fun onMarkerClicked(marker: Marker) {
+        clusterRenderer.setMarkerSelected(marker, true)
+        val item = clusterRenderer.getClusterItem(marker)
+        val itemPositionInViewPager = mapCardsAdapter.getItemPosition(item)
+        itemPositionInViewPager ?: return
+        map_cards_view_pager2.currentItem = itemPositionInViewPager
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
