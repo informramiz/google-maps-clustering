@@ -86,5 +86,13 @@ class PersonClusterRenderer(
         picassoMarker ?: return
         picassoMarker.imageView.isSelected = isSelected
         picassoMarker.load(markerItem.imageUrl)
+
+        if (isSelected) {
+            marker.zIndex = 1f
+            marker.showInfoWindow()
+        } else {
+            marker.zIndex = 0f
+            marker.hideInfoWindow()
+        }
     }
 }

@@ -23,6 +23,9 @@ import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val DEFAULT_ZOOM = 8f
+    }
     private lateinit var map: GoogleMap
     private val random = Random(1984)
 
@@ -64,9 +67,16 @@ class MainActivity : AppCompatActivity() {
         map_cards_view_pager2.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                clusterRenderer.setMarkerSelected(mapCardsAdapter.getItem(position), true)
+                val item = mapCardsAdapter.getItem(position)
+                clusterRenderer.setMarkerSelected(item, true)
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(item.location, getZoomLevel()))
             }
         })
+    }
+
+    private fun getZoomLevel(): Float {
+        val currentZoom = map.cameraPosition.zoom
+        return if (currentZoom < DEFAULT_ZOOM) DEFAULT_ZOOM else currentZoom
     }
 
     private fun setupMap(it: GoogleMap) {
@@ -77,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         clusterManager.renderer = clusterRenderer
         map.setOnMarkerClickListener { marker ->
             onMarkerClicked(marker)
-            false
+            true
         }
     }
 
@@ -109,8 +119,8 @@ class MainActivity : AppCompatActivity() {
         initItems()
         clusterManager.addItems(persons)
         clusterManager.cluster()
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(persons[0].location, 8f))
         mapCardsAdapter.submitList(persons)
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(persons[0].location, getZoomLevel()))
     }
 
     private fun initItems() {
