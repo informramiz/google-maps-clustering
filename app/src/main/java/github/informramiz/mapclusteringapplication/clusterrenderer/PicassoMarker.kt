@@ -16,10 +16,10 @@ import kotlin.math.min
 /**
  * Created by Ramiz Raja on 2019-08-16.
  */
-class PicassoMarker (
-    private val marker: Marker,
-    private val imageView: ImageView,
-    private val iconGenerator: IconGenerator
+data class PicassoMarker (
+    val marker: Marker,
+    val imageView: ImageView,
+    val iconGenerator: IconGenerator
 ): Target {
     override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
         imageView.setImageDrawable(placeHolderDrawable)
