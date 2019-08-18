@@ -59,4 +59,22 @@ class PersonClusterRenderer(
         super.onRemove()
         picassoMarkers.clear() 
     }
+
+    fun setMarkerSelected(marker: Marker, isSelected: Boolean) {
+        val markerItem = getClusterItem(marker)
+        val picassoMarker = findPicassoMarker(marker)
+        picassoMarker ?: return
+        picassoMarker.imageView.isSelected = isSelected
+        picassoMarker.load(markerItem.imageUrl)
+    }
+
+    fun setItemSelected(item: Person, isSelected: Boolean) {
+        val marker = getMarker(item)
+        marker ?: return
+        setMarkerSelected(marker, isSelected)
+    }
+
+    private fun findPicassoMarker(marker: Marker): PicassoMarker? {
+        return picassoMarkers.firstOrNull { it.marker == marker }
+    }
 }
