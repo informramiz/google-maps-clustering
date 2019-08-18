@@ -15,6 +15,7 @@ import com.google.maps.android.clustering.ClusterManager
 import github.informramiz.mapclusteringapplication.R
 import github.informramiz.mapclusteringapplication.clusterrenderer.PersonClusterRenderer
 import github.informramiz.mapclusteringapplication.common.getDimension
+import github.informramiz.mapclusteringapplication.detailview.DetailActivity
 import github.informramiz.mapclusteringapplication.main.adapter.MapCardsAdapter
 import github.informramiz.mapclusteringapplication.main.adapter.PageOffsetAndMarginTransformer
 import github.informramiz.mapclusteringapplication.models.Person
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
     private val persons = mutableListOf<Person>()
     private val mapCardsAdapter = MapCardsAdapter { item ->
-        Toast.makeText(this, item.name, Toast.LENGTH_SHORT).show()
+        DetailActivity.getIntent(this, item).also { startActivity(it) }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
