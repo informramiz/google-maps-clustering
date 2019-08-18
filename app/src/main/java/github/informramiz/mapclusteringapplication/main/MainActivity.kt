@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
             startDemo()
         }
 
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
         map_cards_view_pager2.apply {
             adapter = mapCardsAdapter
             val margin = getDimension(R.dimen.map_cards_view_pager_margin)
@@ -56,6 +60,13 @@ class MainActivity : AppCompatActivity() {
             setPageTransformer(PageOffsetAndMarginTransformer(offset, margin))
             offscreenPageLimit = 3
         }
+
+        map_cards_view_pager2.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                clusterRenderer.setMarkerSelected(mapCardsAdapter.getItem(position), true)
+            }
+        })
     }
 
     private fun setupMap(it: GoogleMap) {

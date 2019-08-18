@@ -27,4 +27,8 @@ class MapCardsAdapter():
         }
         return null
     }
+
+    public override fun getItem(position: Int): Person {
+        return super.getItem(position)
+    }
 }
