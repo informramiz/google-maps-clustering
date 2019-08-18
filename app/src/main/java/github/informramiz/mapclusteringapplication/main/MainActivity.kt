@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
     private val persons = mutableListOf<Person>()
-    private val mapCardsAdapter = MapCardsAdapter(persons)
+    private val mapCardsAdapter = MapCardsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         clusterManager.addItems(persons)
         clusterManager.cluster()
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(persons[0].location, 8f))
-        mapCardsAdapter.notifyDataSetChanged()
+        mapCardsAdapter.submitList(persons)
     }
 
     private fun initItems() {
