@@ -39,10 +39,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         mapFragment.getMapAsync {
-            map = it
-            map.uiSettings.setAllGesturesEnabled(true)
-            map.uiSettings.isMapToolbarEnabled = true
-            map.uiSettings.isZoomControlsEnabled = true
+            setupMap(it)
             startDemo()
         }
 
@@ -53,6 +50,13 @@ class MainActivity : AppCompatActivity() {
             setPageTransformer(PageOffsetAndMarginTransformer(offset, margin))
             offscreenPageLimit = 3
         }
+    }
+
+    private fun setupMap(it: GoogleMap) {
+        map = it
+        map.uiSettings.setAllGesturesEnabled(true)
+        map.uiSettings.isMapToolbarEnabled = true
+        map.uiSettings.isZoomControlsEnabled = true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
