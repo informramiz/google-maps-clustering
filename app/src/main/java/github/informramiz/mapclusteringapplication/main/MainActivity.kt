@@ -3,6 +3,7 @@ package github.informramiz.mapclusteringapplication.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -40,7 +41,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
     private val persons = mutableListOf<Person>()
-    private val mapCardsAdapter = MapCardsAdapter()
+    private val mapCardsAdapter = MapCardsAdapter { item ->
+        Toast.makeText(this, item.name, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

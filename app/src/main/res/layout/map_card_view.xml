@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardCornerRadius="4dp"
-    android:layout_marginEnd="@dimen/map_cards_view_pager_page_offset_and_margin"
     android:layout_marginStart="@dimen/map_cards_view_pager_page_offset_and_margin"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_marginEnd="@dimen/map_cards_view_pager_page_offset_and_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:layout_height="110dp">
+        android:layout_height="match_parent"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@android:color/white">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top"
@@ -39,71 +43,71 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="18dp"/>
+            app:layout_constraintGuide_end="18dp" />
 
         <github.informramiz.mapclusteringapplication.customviews.CircleImageView
             android:id="@+id/circle_image_view"
             android:layout_width="@dimen/map_card_circle_image_view_size"
             android:layout_height="@dimen/map_card_circle_image_view_size"
             android:src="@drawable/placeholder_image"
+            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toTopOf="@id/guideline_top"
-            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"/>
+            app:layout_constraintTop_toTopOf="@id/guideline_top" />
 
         <TextView
             android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:layout_marginStart="12dp"
             android:textColor="@color/textColorPrimary"
-            tools:text="Ramiz Raja"
-            app:layout_constraintTop_toTopOf="@id/circle_image_view"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/circle_image_view"
-            android:layout_marginStart="12dp"/>
+            app:layout_constraintTop_toTopOf="@id/circle_image_view"
+            tools:text="Ramiz Raja" />
 
         <TextView
             android:id="@+id/text_view_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/textColorTertiary"
-            tools:text="It is 3 km away"
             android:text="It is 3 km away"
+            android:textColor="@color/textColorTertiary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/text_view_name"
             app:layout_constraintTop_toBottomOf="@id/text_view_name"
-            app:layout_constraintStart_toStartOf="@id/text_view_name" />
+            tools:text="It is 3 km away" />
 
         <TextView
             android:id="@+id/text_view_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/textColorSecondary"
-            android:textStyle="bold"
-            tools:text="15 SAR"
             android:text="15 SAR"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintTop_toTopOf="@id/circle_image_view"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end" />
+            tools:text="15 SAR" />
 
         <TextView
             android:id="@+id/text_view_per_hour_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11sp"
-            android:textColor="@color/textColorTertiary"
-            android:textStyle="bold"
-            tools:text="Per hour"
             android:text="Per hour"
+            android:textColor="@color/textColorTertiary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintTop_toBottomOf="@id/text_view_price"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end" />
+            tools:text="Per hour" />
 
         <RatingBar
             android:id="@+id/rating_bar"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rating="3.5"
-            style="?android:attr/ratingBarStyleSmall"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"/>
+            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
